@@ -4,8 +4,6 @@ on:
   issues:
     types: [opened, reopened, closed]
 
-permissions: {}
-
 jobs:
   test:
     uses: jsnerdic/reusable-workflows/workflows/messageAction.yaml@main
