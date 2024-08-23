@@ -7,7 +7,7 @@ on:
 permissions: {}
 
 jobs:
-  jobs:
+  test:
     uses: jsnerdic/reusable-workflows/workflows/messageAction.yaml@main
     permissions:
       issues: write
