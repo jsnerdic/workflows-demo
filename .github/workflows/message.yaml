@@ -8,4 +8,4 @@ permissions: {}
 
 jobs:
   jobs:
-    uses: jsnerdic/.github/workflows/messageAction.yaml@main
+    uses: jsnerdic/jsnerdic/.github/workflows/messageAction.yaml@main
