@@ -6,6 +6,6 @@ on:
 
 jobs:
   test:
-    uses: jsnerdic/reusable-workflows/workflows/messageAction.yaml@main
+    uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       issues: write
