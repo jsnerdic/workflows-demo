@@ -1,0 +1,11 @@
+name: reusable workflow test
+
+on:
+  issues:
+    types: [opened, reopened, closed]
+
+permissions: {}
+
+jobs:
+  jobs:
+    uses: jsnerdic/.github/workflows/messageAction.yaml@main
