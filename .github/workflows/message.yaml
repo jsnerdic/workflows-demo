@@ -11,7 +11,7 @@ jobs:
       contents: read
       issues: write
     with:
-      comment: 'Hello world!'
+      message: 'Hello world!'
   test2:
     needs: [test]
     if: ${{ needs.test.outputs.OUTPUT_TEST != '' }}
@@ -20,13 +20,13 @@ jobs:
       contents: read
       issues: write
     with:
-      comment: '<grumpy mumblig>'
+      message: '<grumpy mumblig>'
   test3:
     needs: [test2]
-    if: ${{ needs.test.outputs.OUTPUT_TEST == '' }}
+    if: ${{ needs.test2.outputs.OUTPUT_TEST == '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
       issues: write
     with:
-      comment: 'Hello back! :wave:'
+      message: 'Hello back! :wave:'
