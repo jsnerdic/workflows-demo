@@ -14,7 +14,6 @@ jobs:
       message: 'Hello World'
   test2:
     needs: [test]
-    if: ${{ needs.test.outputs.OUTPUT_TEST != '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
@@ -23,7 +22,6 @@ jobs:
       message: needs.test.outputs.OUTPUT_TEST
   test3:
     needs: [test2]
-    if: ${{ needs.test2.outputs.OUTPUT_TEST == '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
