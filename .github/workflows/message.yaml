@@ -13,6 +13,7 @@ jobs:
     with:
       comment: 'Hello world!'
   test2:
+    needs: [test]
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
