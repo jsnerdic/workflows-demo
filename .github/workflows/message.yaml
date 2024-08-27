@@ -6,25 +6,15 @@ on:
 
 jobs:
   test:
-    uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       issues: write
-    with:
-      message: 'Hello World'
-  test2:
-    needs: [test]
-    uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
-    permissions:
-      contents: read
-      issues: write
-    with:
-      message: ${{ needs.test.outputs.OUTPUT_TEST }}
-  test3:
-    needs: [test2]
-    uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
-    permissions:
-      contents: read
-      issues: write
-    with:
-      message: ${{ needs.test2.outputs.OUTPUT_TEST }}
+    steps:
+      - name: Test
+        uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
+        with:
+          message: 'Hello World'
+      - name: Set output
+        id: set_output
+        run: echo ${{ steps.Test.outputs.OUTPUT_TEST }}
