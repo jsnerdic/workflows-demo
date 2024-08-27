@@ -14,19 +14,19 @@ jobs:
       message: 'Hello World'
   test2:
     needs: [test]
-    if: ${{ jobs.needs.test.outputs.OUTPUT_TEST != '' }}
+    if: ${{ needs.test.outputs.OUTPUT_TEST != '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
       issues: write
     with:
-      message: jobs.needs.test.outputs.OUTPUT_TEST
+      message: needs.test.outputs.OUTPUT_TEST
   test3:
     needs: [test2]
-    if: ${{ jobs.needs.test2.outputs.OUTPUT_TEST == '' }}
+    if: ${{ needs.test2.outputs.OUTPUT_TEST == '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
       issues: write
     with:
-      message: jobs.needs.test2.outputs.OUTPUT_TEST
+      message: needs.test2.outputs.OUTPUT_TEST
