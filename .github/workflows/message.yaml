@@ -11,7 +11,7 @@ jobs:
       contents: read
       issues: write
     with:
-      message: 'Hello world!'
+      message: 'Hello World'
   test2:
     needs: [test]
     if: ${{ needs.test.outputs.OUTPUT_TEST != '' }}
@@ -20,7 +20,7 @@ jobs:
       contents: read
       issues: write
     with:
-      message: '<grumpy mumblig>'
+      message: needs.test.outputs.OUTPUT_TEST
   test3:
     needs: [test2]
     if: ${{ needs.test2.outputs.OUTPUT_TEST == '' }}
@@ -29,4 +29,4 @@ jobs:
       contents: read
       issues: write
     with:
-      message: 'Hello back! :wave:'
+      message: needs.test2.outputs.OUTPUT_TEST
