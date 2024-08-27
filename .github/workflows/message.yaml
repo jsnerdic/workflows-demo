@@ -19,7 +19,7 @@ jobs:
       contents: read
       issues: write
     with:
-      message: needs.test.outputs.OUTPUT_TEST
+      message: ${{ needs.test.outputs.OUTPUT_TEST }}
   test3:
     needs: [test2]
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
@@ -27,4 +27,4 @@ jobs:
       contents: read
       issues: write
     with:
-      message: needs.test2.outputs.OUTPUT_TEST
+      message: ${{ needs.test2.outputs.OUTPUT_TEST }}
