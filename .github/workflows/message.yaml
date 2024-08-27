@@ -14,6 +14,16 @@ jobs:
       comment: 'Hello world!'
   test2:
     needs: [test]
+    if: ${{ needs.test.outputs.OUTPUT_TEST != '' }}
+    uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
+    permissions:
+      contents: read
+      issues: write
+    with:
+      comment: '<grumpy mumblig>'
+  test3:
+    needs: [test2]
+    if: ${{ needs.test.outputs.OUTPUT_TEST == '' }}
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
     permissions:
       contents: read
