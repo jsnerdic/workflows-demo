@@ -15,6 +15,3 @@ jobs:
         uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
         with:
           message: 'Hello World'
-      - name: Set output
-        id: set_output
-        run: echo ${{ steps.Test.outputs.OUTPUT_TEST }}
