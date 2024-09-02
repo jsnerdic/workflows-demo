@@ -7,6 +7,7 @@ on:
 jobs:
   job1:
     uses: jsnerdic/reusable-workflows/.github/workflows/messageAction.yaml@main
+    secrets: inherit
     permissions:
       contents: read
       issues: write
